@@ -15,7 +15,7 @@
   %tbody
     - @trips.each do |trip|
       %tr
-        %td= link_to trip.name, places_path(@trip)
+        %td= link_to trip.name, trip_places_path(trip)
         %td= trip.description
         %td= trip.location
         %td= trip.date

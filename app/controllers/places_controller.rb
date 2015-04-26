@@ -4,7 +4,8 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @trip = Trip.find(params[:trip_id])
+    @places = @trip.places
   end
 
   # GET /places/1
@@ -15,6 +16,7 @@ class PlacesController < ApplicationController
   # GET /places/new
   def new
     @place = Place.new
+    @trip = Trip.find(params[:trip_id])
   end
 
   # GET /places/1/edit
@@ -24,13 +26,14 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
+    binding.pry
     @place = Place.new(place_params)
     @place.user = current_user
-    
+    @place.trip = Trip.find(params[:trip_id])
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.html { redirect_to trip_places_path(@place.trip), notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
@@ -71,6 +74,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:user_id, :trip_id, :url, :description, :price)
+      params.require(:place).permit(:url, :description, :price)
     end
 end
