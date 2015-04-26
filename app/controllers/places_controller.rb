@@ -26,7 +26,6 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    binding.pry
     @place = Place.new(place_params)
     @place.user = current_user
     @place.trip = Trip.find(params[:trip_id])

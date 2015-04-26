@@ -16,10 +16,12 @@
     - @places.each do |place|
       %tr
         %td= place.name
-        %td= place.url
+        %td= link_to 'Maps', place.url
         %td= place.description
         %td= place.price
-        %td= place.user
+        %td
+          Created by
+          = place.user
         %td= link_to 'Show', place
         %td= link_to 'Edit', edit_place_path(place)
         %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
