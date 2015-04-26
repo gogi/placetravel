@@ -1,13 +1,13 @@
-%h1 Listing places
+%h1= @trip.name
 
 %table.table.table-hover
   %thead
     %tr
-      %th User
-      %th Trip
+      %th Name
       %th Url
       %th Description
       %th Price
+      %th User
       %th
       %th
       %th
@@ -15,11 +15,11 @@
   %tbody
     - @places.each do |place|
       %tr
-        %td= place.user
-        %td= place.trip
+        %td= place.name
         %td= place.url
         %td= place.description
         %td= place.price
+        %td= place.user
         %td= link_to 'Show', place
         %td= link_to 'Edit', edit_place_path(place)
         %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
