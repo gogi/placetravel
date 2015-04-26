@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :places, only: [:index, :new, :create]
+    post 'invite', to: 'trips#invite'
   end
   resources :places, only: [:show, :edit, :update, :destroy]
 

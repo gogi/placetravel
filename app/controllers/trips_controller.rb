@@ -1,6 +1,13 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
+  def invite
+    trip = Trip.find(params[:trip_id])
+    user = User.invite!(invite_params)
+    Membership.create(trip: trip, user: user)
+    redirect_to trip
+  end
+
   # GET /trips
   # GET /trips.json
   def index
@@ -71,5 +78,9 @@ class TripsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
       params.require(:trip).permit(:name, :description, :location, :date, :user_id)
+    end
+
+    def invite_params
+      params.require(:invite).permit(:email, :name)
     end
 end
