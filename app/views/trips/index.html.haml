@@ -15,7 +15,7 @@
   %tbody
     - @trips.each do |trip|
       %tr
-        %td= trip.name
+        %td= link_to trip.name, places_path(@trip)
         %td= trip.description
         %td= trip.location
         %td= trip.date
@@ -26,4 +26,4 @@
 
 %br
 
-= link_to 'New Trip', new_trip_path
+= link_to 'New Trip', new_trip_path, class: 'btn btn-success'
