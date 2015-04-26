@@ -1,4 +1,4 @@
--# navigation styled for Bootstrap 3.0
+-# navigati%ul.nav.navbar-navon styled for Bootstrap 3.0
 %nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
@@ -7,7 +7,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'Trips', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
+      %ul.nav.navbar-nav.navbar-right
+        = render 'layouts/session_links'
