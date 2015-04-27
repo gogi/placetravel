@@ -1,11 +1,9 @@
 class PlacesController < ApplicationController
 
   expose(:trip)
-  expose(:places, ancestor: :trip)
-  expose(:place, attributes: :set_place)
+  expose(:places)
+  expose(:place, attributes: :place_params)
   expose(:user)
-
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
@@ -51,7 +49,7 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1.json
   def update
     respond_to do |format|
-      if place.update(place_params)
+      if place.save
         format.html { redirect_to place, notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: place }
       else
@@ -66,16 +64,12 @@ class PlacesController < ApplicationController
   def destroy
     place.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      place = Place.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
