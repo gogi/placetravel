@@ -1,4 +1,4 @@
-%h1= @trip.name
+%h1= trip.name
 
 %table.table.table-hover
   %thead
@@ -13,7 +13,7 @@
       %th
 
   %tbody
-    - @places.each do |place|
+    - places.each do |place|
       %tr
         %td= place.name
         %td= link_to 'Maps', place.url
@@ -28,4 +28,4 @@
 
 %br
 
-= link_to 'New Place', new_trip_place_path(@trip), class: 'btn btn-success'
+= link_to 'New Place', new_trip_place_path(trip), class: 'btn btn-success'

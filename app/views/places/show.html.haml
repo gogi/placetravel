@@ -2,20 +2,20 @@
 
 %p
   %b User:
-  = @place.user
+  = place.user
 %p
   %b Trip:
-  = @place.trip
+  = place.trip
 %p
   %b Url:
-  = @place.url
+  = place.url
 %p
   %b Description:
-  = @place.description
+  = place.description
 %p
   %b Price:
-  = @place.price
+  = place.price
 
-= link_to 'Edit', edit_place_path(@place)
+= link_to 'Edit', edit_place_path(place)
 \|
-= link_to 'Back', trip_places_path(@place.trip)
+= link_to 'Back', trip_places_path(place.trip)

@@ -1,11 +1,17 @@
 class PlacesController < ApplicationController
+
+  expose(:trip)
+  expose(:places, ancestor: :trip)
+  expose(:place, attributes: :set_place)
+  expose(:user)
+
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
   def index
-    @trip = Trip.find(params[:trip_id])
-    @places = @trip.places
+    # @trip = Trip.find(params[:trip_id])
+    # @places = @trip.places
   end
 
   # GET /places/1
@@ -15,8 +21,8 @@ class PlacesController < ApplicationController
 
   # GET /places/new
   def new
-    @place = Place.new
-    @trip = Trip.find(params[:trip_id])
+    # @place = Place.new
+    # @trip = Trip.find(params[:trip_id])
   end
 
   # GET /places/1/edit
@@ -26,17 +32,17 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    @place = Place.new(place_params)
-    @place.user = current_user
-    @place.trip = Trip.find(params[:trip_id])
+    # @place = Place.new(place_params)
+    place.user = current_user
+    place.trip = Trip.find(params[:trip_id])
 
     respond_to do |format|
-      if @place.save
-        format.html { redirect_to trip_places_path(@place.trip), notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
+      if place.save
+        format.html { redirect_to trip_places_path(place.trip), notice: 'Place was successfully created.' }
+        format.json { render :show, status: :created, location: place }
       else
         format.html { render :new }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        format.json { render json: place.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,12 +51,12 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1.json
   def update
     respond_to do |format|
-      if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
-        format.json { render :show, status: :ok, location: @place }
+      if place.update(place_params)
+        format.html { redirect_to place, notice: 'Place was successfully updated.' }
+        format.json { render :show, status: :ok, location: place }
       else
         format.html { render :edit }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        format.json { render json: place.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +64,7 @@ class PlacesController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
-    @place.destroy
+    place.destroy
     respond_to do |format|
       format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
@@ -68,7 +74,7 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      @place = Place.find(params[:id])
+      place = Place.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
