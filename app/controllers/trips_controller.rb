@@ -7,7 +7,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def invite
-    # trip = Trip.find(params[:trip_id])
+    trip = Trip.find(params[:trip_id])
     user = User.invite!(invite_params)
     Membership.create(trip: trip, user: user)
     redirect_to trip
