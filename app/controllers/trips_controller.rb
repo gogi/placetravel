@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
 
-  # expose(:trip)
   expose(:trips)
   expose(:trip, attributes: :trip_params)
   expose(:user)
