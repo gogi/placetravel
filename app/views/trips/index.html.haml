@@ -13,7 +13,7 @@
       %th
 
   %tbody
-    - @trips.each do |trip|
+    - trips.each do |trip|
       %tr
         %td= link_to trip.name, trip_places_path(trip)
         %td= trip.description

@@ -1,8 +1,12 @@
 class TripsController < ApplicationController
+
+  expose(:trip)
+  expose(:trips)
+
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def invite
-    trip = Trip.find(params[:trip_id])
+    # trip = Trip.find(params[:trip_id])
     user = User.invite!(invite_params)
     Membership.create(trip: trip, user: user)
     redirect_to trip
@@ -11,7 +15,7 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    trips = Trip.all
   end
 
   # GET /trips/1
@@ -21,7 +25,7 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    @trip = Trip.new
+    # @trip = Trip.new
   end
 
   # GET /trips/1/edit
@@ -31,16 +35,16 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
-    @trip.user = current_user
+    trip = Trip.new(trip_params)
+    trip.user = current_user
 
     respond_to do |format|
-      if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render :show, status: :created, location: @trip }
+      if trip.save
+        format.html { redirect_to trip, notice: 'Trip was successfully created.' }
+        format.json { render :show, status: :created, location: trip }
       else
         format.html { render :new }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
+        format.json { render json: trip.errors, status: :unprocessable_entity }
       end
     end
   end
