@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
   expose(:trip)
-  expose(:places)
+  expose(:places) { trip.places }
   expose(:place, attributes: :place_params)
   expose(:user)
 
