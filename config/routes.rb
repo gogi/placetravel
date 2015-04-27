@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'trips#index'
+  root 'pages#home'
+
+  get 'about', to: 'pages#about'
 
   resources :trips do
     resources :places, only: [:index, :new, :create]
