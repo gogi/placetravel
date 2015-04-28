@@ -20,9 +20,9 @@
         %td= trip.location
         %td= trip.date
         %td= trip.user
-        %td= link_to 'Show', trip, class: 'btn btn-default'
-        %td= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
-        %td= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
+        %td.action-buttons= link_to 'Show', trip, class: 'btn btn-default'
+        %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
+        %td.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
 
 %br
 

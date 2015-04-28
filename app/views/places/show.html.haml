@@ -16,6 +16,6 @@
   %b Price:
   = place.price
 
-= link_to 'Edit', edit_place_path(place)
+= link_to 'Edit', edit_place_path(place), class: 'btn btn-primary'
 \|
-= link_to 'Back', trip_places_path(place.trip)
+= link_to 'Back', trip_places_path(place.trip), class: 'btn btn-default'

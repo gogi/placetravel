@@ -22,9 +22,9 @@
         %td
           Created by
           = place.user
-        %td= link_to 'Show', place
-        %td= link_to 'Edit', edit_place_path(place)
-        %td= link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td.action-buttons= link_to 'Show', place, class: 'btn btn-default'
+        %td.action-buttons= link_to 'Edit', edit_place_path(place), class: 'btn btn-primary'
+        %td.action-buttons= link_to 'Destroy', place, class: 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
