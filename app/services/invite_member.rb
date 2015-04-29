@@ -14,6 +14,8 @@ class InviteMember
     else
       user = User.invite!(name: @name, email: @email)
     end
-    Membership.create(trip: trip, user: user)
+    unless Membership.exist?(trip: trip, user: user)
+      Membership.create(trip: trip, user: user)
+    end
   end
 end
