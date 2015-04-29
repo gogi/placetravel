@@ -9,7 +9,11 @@ class InviteMember
 
   def call
     trip = Trip.find(@trip_id)
-    user = User.invite!(name: @name, email: @email)
+    if User.exist?(email: @email)
+      user = User.find_by(email: @email)
+    else
+      user = User.invite!(name: @name, email: @email)
+    end
     Membership.create(trip: trip, user: user)
   end
 end
