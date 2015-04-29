@@ -9,8 +9,11 @@ class TripsController < ApplicationController
 
   def invite
     trip = Trip.find(params[:trip_id])
-    user = User.invite!(invite_params)
-    Membership.create(trip: trip, user: user)
+    InviteMember.new(
+      invite_params[:email],
+      invite_params[:name],
+      trip.id
+    ).call
     redirect_to trip
   end
 
