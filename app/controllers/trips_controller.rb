@@ -39,6 +39,7 @@ class TripsController < ApplicationController
   def create
     # trip = Trip.new(trip_params)
     trip.user = current_user
+    trip.users << current_user
 
     respond_to do |format|
       if trip.save
