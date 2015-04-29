@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   resources :trips do
-    resources :places, only: [:index, :new, :create]
+    resources :places
     post 'invite', to: 'trips#invite'
   end
-  resources :places, only: [:show, :edit, :update, :destroy]
 
   devise_for :users
 end
