@@ -5,6 +5,7 @@ class TripsController < ApplicationController
   expose(:user)
 
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def invite
     trip = Trip.find(params[:trip_id])

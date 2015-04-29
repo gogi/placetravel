@@ -5,6 +5,8 @@ class PlacesController < ApplicationController
   expose(:place, attributes: :place_params)
   expose(:user)
 
+  before_action :authenticate_user!
+
   # GET /places
   # GET /places.json
   def index
