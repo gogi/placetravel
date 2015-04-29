@@ -21,7 +21,8 @@
         %td= trip.date
         %td= trip.user
         %td.action-buttons= link_to 'Places', trip_places_path(trip), class: 'btn btn-default'
-        %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
+        - if trip.user == current_user
+          %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
         %td.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
 
 %br
