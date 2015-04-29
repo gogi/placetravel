@@ -24,8 +24,10 @@
           = place.user
         %td.action-buttons= link_to 'Show', place, class: 'btn btn-default'
         %td.action-buttons= link_to 'Edit', edit_place_path(place), class: 'btn btn-primary'
-        %td.action-buttons= link_to 'Destroy', place, class: 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td.action-buttons= link_to 'Destroy', place, class: 'btn btn-danger', method: :delete, data: { :confirm => 'Are you sure?' }
 
 %br
 
 = link_to 'New Place', new_trip_place_path(trip), class: 'btn btn-success'
+
+= link_to 'Back', trips_path, class: 'btn btn-default'
