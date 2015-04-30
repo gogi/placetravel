@@ -8,6 +8,7 @@
       %th Location
       %th Date
       %th Created by
+      %th 
       %th
       %th
       %th
@@ -20,6 +21,7 @@
         %td= trip.location
         %td= trip.date
         %td= trip.user
+        %td.badge.glyphicon.glyphicon-user= trip.users.count
         %td.action-buttons= link_to 'Places', trip_places_path(trip), class: 'btn btn-default'
         - if trip.user == current_user
           %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
