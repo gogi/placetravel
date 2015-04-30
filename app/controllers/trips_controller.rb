@@ -21,7 +21,6 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    # trips = Trip.all
   end
 
   # GET /trips/1
@@ -31,7 +30,6 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    # @trip = Trip.new
   end
 
   # GET /trips/1/edit
@@ -41,7 +39,6 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    # trip = Trip.new(trip_params)
     trip.user = current_user
     trip.users << current_user
 
