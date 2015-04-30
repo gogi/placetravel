@@ -10,14 +10,14 @@ class InviteMember
   def call
     trip = Trip.find(@trip_id)
     user = fetch_user
-    return if Membership.exist?(trip: trip, user: user)
+    return if Membership.exists?(trip: trip, user: user)
     Membership.create(trip: trip, user: user)
   end
 
   private
 
   def fetch_user
-    if User.exist?(email: @email)
+    if User.exists?(email: @email)
       User.find_by(email: @email)
     else
       User.invite!(name: @name, email: @email)

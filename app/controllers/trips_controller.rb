@@ -8,8 +8,8 @@ class TripsController < ApplicationController
   before_action :authenticate_user!
 
   def invite
-    return unless Trip.user == Trip.owner
     trip = Trip.find(params[:trip_id])
+    authorize trip
     InviteMember.new(
       invite_params[:email],
       invite_params[:name],

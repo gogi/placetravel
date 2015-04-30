@@ -17,7 +17,7 @@
   = trip.user
 
 %p
-  - if trip.user == current_user
+  - if policy(trip).invite?
     %b Invite:
     = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
       = f.input :email
