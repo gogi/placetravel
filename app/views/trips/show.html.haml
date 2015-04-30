@@ -17,11 +17,12 @@
   = trip.user
 
 %p
-  %b Invite:
-  = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
-    = f.input :email
-    = f.input :name
-    = f.submit
+  - if trip.user == current_user
+    %b Invite:
+    = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
+      = f.input :email
+      = f.input :name
+      = f.submit
 
 = link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
 \|
