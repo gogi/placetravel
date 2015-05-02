@@ -1,3 +1,6 @@
+%script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
+%script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
+
 %h1= trip.name
 
 %table.table.table-hover
@@ -26,6 +29,20 @@
         %td.action-buttons= link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
         %td.action-buttons= link_to 'Destroy', trip_place_path(place.trip, place), class: 'btn btn-danger', method: :delete, data: { :confirm => 'Are you sure?' }
 
+%br
+
+#map.map
+
+:javascript
+  console.log(gon);
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers( gon.hash );
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+%br
 %br
 
 = link_to 'New Place', new_trip_place_path(trip), class: 'btn btn-success'
