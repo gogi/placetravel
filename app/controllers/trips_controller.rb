@@ -45,7 +45,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       if trip.save
         format.html { redirect_to trip, notice: 'Trip was successfully created.' }
-        format.json { render :show, status: :created, location: trip }
+        format.json { render :show, status: :created, address: trip }
       else
         format.html { render :new }
         format.json { render json: trip.errors, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       if trip.update(trip_params)
         format.html { redirect_to trip, notice: 'Trip was successfully updated.' }
-        format.json { render :show, status: :ok, location: trip }
+        format.json { render :show, status: :ok, address: trip }
       else
         format.html { render :edit }
         format.json { render json: trip.errors, status: :unprocessable_entity }
@@ -88,7 +88,7 @@ class TripsController < ApplicationController
       params.require(:trip).permit(
         :name,
         :description,
-        :location,
+        :address,
         :date,
         :user_id,
         :longitude,

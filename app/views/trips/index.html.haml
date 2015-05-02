@@ -9,7 +9,7 @@
       %th Location
       %th Date
       %th Created by
-      %th 
+      %th
       %th
       %th
 
@@ -19,11 +19,11 @@
         %td.badge.glyphicon.glyphicon-user= trip.users.count
         %td= link_to trip.name, trip_path(trip)
         %td= trip.description
-        %td= trip.location
+        %td= trip.address
         %td= trip.date
         %td= trip.user
         %td.action-buttons
-          = link_to trip_places_path(trip) do 
+          = link_to trip_places_path(trip) do
             %span.btn.btn-default
               %span.badge.glyphicon.glyphicon-pushpin= trip.places.count
               Places

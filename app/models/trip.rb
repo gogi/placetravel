@@ -4,7 +4,7 @@ class Trip < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
 
-  geocoded_by :location
+  geocoded_by :address
   after_validation :geocode
 
   reverse_geocoded_by :latitude, :longitude
