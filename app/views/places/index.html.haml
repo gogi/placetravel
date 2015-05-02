@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Name
-      %th Url
+      %th Address
       %th Description
       %th Price
       %th User
@@ -16,7 +16,7 @@
     - places.each do |place|
       %tr
         %td= place.name
-        %td= link_to 'Maps', place.url
+        %td= place.address
         %td= place.description
         %td= place.price
         %td
