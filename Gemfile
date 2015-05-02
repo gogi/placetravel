@@ -12,6 +12,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'gon'
+gem 'awesome_print'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

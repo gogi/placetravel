@@ -44,6 +44,7 @@ GEM
     autoprefixer-rails (5.1.11)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -340,6 +341,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   better_errors
   bootstrap-sass
   byebug
