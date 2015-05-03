@@ -3,7 +3,7 @@
 %br
 I would like to invite You on a trip:
 .trip-name{style: "color: green;"}
-  = @trip.name 
+  =link_to @trip.name, trip_path(@trip, only_path: false)
 %br
 %br
 = link_to 'Accept', confirm_membership_path(@membership.id, only_path: false)

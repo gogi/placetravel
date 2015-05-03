@@ -9,4 +9,8 @@ class Trip < ActiveRecord::Base
 
   alias_method :members, :users
   alias_method :members=, :users=
+
+  def membership(user)
+    Membership.find_by(user: user, trip: self)
+  end
 end
