@@ -7,10 +7,11 @@ class Trip < ActiveRecord::Base
   alias_method :owner, :user
   alias_method :owner=, :user=
 
-  alias_method :members, :users
-  alias_method :members=, :users=
-
   def membership(user)
     Membership.find_by(user: user, trip: self)
+  end
+
+  def members
+    memberships.where(active: true).map(&:user)
   end
 end
