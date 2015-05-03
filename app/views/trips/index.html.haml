@@ -16,7 +16,8 @@
   %tbody
     - trips.each do |trip|
       %tr
-        %td.badge.glyphicon.glyphicon-user= trip.users.count
+        %td
+          %span.badge.glyphicon.glyphicon-user= trip.users.count
         %td= link_to trip.name, trip_path(trip)
         %td= trip.description
         %td= trip.address
