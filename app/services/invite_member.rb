@@ -11,7 +11,8 @@ class InviteMember
     trip = Trip.find(@trip_id)
     user = fetch_user
     return if Membership.exists?(trip: trip, user: user)
-    Membership.create(trip: trip, user: user)
+    membership = Membership.create(trip: trip, user: user, active: false)
+    InviteMailer.invite_to_trip(membership).deliver
   end
 
   private
