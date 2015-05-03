@@ -6,4 +6,4 @@ I would like to invite You on a trip:
   = @trip.name 
 %br
 %br
-= link_to 'Accept', confirm_membership_path(@trip.id)
+= link_to 'Accept', confirm_membership_path(@membership.id, only_path: false)
