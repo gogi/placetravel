@@ -1,5 +1,9 @@
 = "Hello #{@user.name}!"
 %br
-I would like to invite You on a trip
-= @trip.name
-!
+%br
+I would like to invite You on a trip:
+.trip-name{style: "color: green;"}
+  = @trip.name 
+%br
+%br
+= link_to 'Accept', confirm_membership_path(@trip.id)

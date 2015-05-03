@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     post 'invite', to: 'trips#invite'
   end
 
+  get '/memberships/confirm/:id', to: 'memberships#confirm', as: :confirm_membership
+
   devise_for :users
 end
