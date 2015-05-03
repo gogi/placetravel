@@ -26,6 +26,7 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+    @membership = trip.membership(current_user)
   end
 
   # GET /trips/new

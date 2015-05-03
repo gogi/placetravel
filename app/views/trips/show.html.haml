@@ -23,9 +23,8 @@
       = f.input :email
       = f.input :name
       = f.submit
-  - membership = trip.membership(current_user)
-  - if policy(membership).confirm?
-    = link_to 'Accept', confirm_membership_path(membership.id), class: 'btn btn-success'
+  - if policy(@membership).confirm?
+    = link_to 'Accept', confirm_membership_path(@membership.id), class: 'btn btn-success'
 
 = link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
 \|
