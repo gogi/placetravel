@@ -3,6 +3,9 @@ Project: Placetravel
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+![alt tag](http://content.screencast.com/users/jakub.kubacki/folders/Jing/media/d21ee94c-6295-4549-a74b-3766b21bbc4a/00000045.png)
+
+
 General info
 -----------
 
