@@ -18,7 +18,8 @@
   %tbody
     - places.each do |place|
       %tr
-        %td= place.name
+        %td.place-name
+          = place.name
         %td= place.address
         %td= place.description
         %td= place.price
@@ -31,10 +32,12 @@
 
 %br
 
-#map.map
+- if places.count > 0
+  #map.map
+- else 
+  There are no places. Why not add some?
 
 :javascript
-  console.log(gon);
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers( gon.hash );
