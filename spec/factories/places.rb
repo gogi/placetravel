@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :place do
     user nil
 trip nil
-url "MyString"
+address "MyString"
 description "MyText"
 price 1
   end
