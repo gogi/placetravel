@@ -1,6 +1,6 @@
 describe User do
 
-  before(:each) { @user = User.new(email: 'user@example.com') }
+  before(:each) { @user = User.new(email: 'user@example.com', name: 'John') }
 
   subject { @user }
 
@@ -8,6 +8,10 @@ describe User do
 
   it "#email returns a string" do
     expect(@user.email).to match 'user@example.com'
+  end
+
+  it '#to_s returns a name' do
+    expect(@user.to_s).to eq 'John'
   end
 
 end
