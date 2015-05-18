@@ -1,50 +1,80 @@
-Placetravel
+Project: Placetravel
 ================
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+![alt tag](http://content.screencast.com/users/jakub.kubacki/folders/Jing/media/d21ee94c-6295-4549-a74b-3766b21bbc4a/00000045.png)
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
 
-Problems? Issues?
+General info
 -----------
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+This app was created to help organize travel.
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+User can create a trip and invite people via e-mail to join it. All members have ability to add (interesting) places to the trip- with price, address and description. All places are displayed on the map (whith description after clicking on the marker).
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
+Features
 -------------
+#### Done
 
-This application requires:
+* Register with confirmation email
+* Invite new members via email
+* Join Trip after receiving and accepting invitation email
+* List all member's Trips
+* List all places in Trip
+* Create places inside the Trip
+* Edit / delete / update Trip (only by creator)
+* Edit / delete / update place (only by creator)
+* Display map for Trip under list of all places
+* Mark all places on map
+* Show place description after clicking on marker on the map
+* Authorise user
+* Show how many places is in Trip
+* Show number of Trip's members
 
-- Ruby 2.2.0
-- Rails 4.2.0
+#### To do
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+* Test with Rspec
+* Email to members with information about new place
+* Cancel invitation
+* User Avatar
+* Page About
+* User's profile
 
-Getting Started
+Technologies used
 ---------------
 
-Documentation and Support
+* Ruby on Rails 4.2.0
+* Ruby 2.2.0
+* Postgresql
+* HAML
+* Bootstrap 3
+* Devise authentication
+* Pundit authorization
+* Google Maps API
+* Gem 'Gon'
+* Gem 'Geocoder'
+
+Notes
 -------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
+Please follow Ruby style guide available [here](https://github.com/bbatsov/ruby-style-guide).
 
 Contributing
-------------
+-------------
+If you make improvements to this application, please share with others.
 
-Credits
--------
+* Fork the project on GitHub.
+* Make your feature addition or bug fix.
+* Commit with Git.
+* Send the author a pull request.
+
+If you add functionality to this application, create an alternative
+implementation, or build an application that is similar, please contact
+me and I’ll add a note to the README so that others can find your work.
 
 License
 -------
+MIT (in LICENCE file)
+Author
+-------
+Malgorzata Grobelska
