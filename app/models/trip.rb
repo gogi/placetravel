@@ -6,7 +6,7 @@ class Trip < ActiveRecord::Base
 
   validates :name, presence: true
   validates :date, presence: true
-  validates :user_id, presence: true
+
 
   alias_method :owner, :user
   alias_method :owner=, :user=
