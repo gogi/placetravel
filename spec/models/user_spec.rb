@@ -2,6 +2,10 @@ describe User do
 
   it {should have_many(:memberships)}
   it {should have_many(:trips).through(:memberships)}
+
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email) }
   
   before(:each) { @user = User.new(email: 'user@example.com', name: 'John') }
 
