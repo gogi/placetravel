@@ -29,6 +29,20 @@ describe PlacesController do
           expect(response).to render_template :index
         end
       end
+
+      describe 'GET #new' do
+        it 'renders the :new template' do
+          trip = create(:trip)
+          get :new, trip_id: trip.id
+          expect(response).to render_template :new
+        end
+        it 'exposes place' do
+          trip = create(:trip)
+          place = create(:place, trip: trip)
+          get :new, trip_id: trip.id, id: place.id
+          expect(controller.place).to eq place
+        end
+      end
     end
 
     context 'not logged user' do
