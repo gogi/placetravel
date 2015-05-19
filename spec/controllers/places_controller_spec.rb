@@ -43,6 +43,21 @@ describe PlacesController do
           expect(controller.place).to eq place
         end
       end
+
+      describe 'GET #edit' do
+        it 'renders the :edit template' do
+          trip = create(:trip)
+          place = create(:place, trip: trip)
+          get :edit, trip_id: trip.id, id: place.id
+          expect(response).to render_template :edit
+        end
+        it 'exposes place' do
+          trip = create(:trip)
+          place = create(:place, trip: trip)
+          get :edit, trip_id: trip.id, id: place.id
+          expect(controller.place).to eq place
+        end
+      end
     end
 
     context 'not logged user' do
