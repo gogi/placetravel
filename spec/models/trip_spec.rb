@@ -6,7 +6,10 @@ RSpec.describe Trip, type: :model do
   it { should have_many(:places) }
   it { should have_many(:memberships) }
   it { should have_many(:users).through(:memberships) }
-  
+
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:date) }
+
   let(:user1) { create(:user, email: 'user@wp.pl') }
   let(:user2) { create(:user, email: 'user2@wp.pl') }
   let(:user3) { create(:user, email: 'user3@wp.pl') }
