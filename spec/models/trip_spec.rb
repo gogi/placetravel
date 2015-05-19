@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
+
+  it { should belong_to(:user) }
+  it { should have_many(:places) }
+  it { should have_many(:members) }
+  it { should have_many(:users).through(:memberships) }
   
   let(:user1) { create(:user, email: 'user@wp.pl') }
   let(:user2) { create(:user, email: 'user2@wp.pl') }
