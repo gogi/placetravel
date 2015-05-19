@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :place do
     user nil
-trip nil
+name "Ordinary place"
+trip "Tripas"
 address "MyString"
 description "MyText"
 price 1
