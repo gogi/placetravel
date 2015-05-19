@@ -1,5 +1,8 @@
 describe User do
 
+  it {should have_many(:memberships)}
+  it {should have_many(:trips).through(:memberships)}
+  
   before(:each) { @user = User.new(email: 'user@example.com', name: 'John') }
 
   subject { @user }
