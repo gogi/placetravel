@@ -4,6 +4,10 @@ class Trip < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
 
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :user_id, presence: true
+
   alias_method :owner, :user
   alias_method :owner=, :user=
 
