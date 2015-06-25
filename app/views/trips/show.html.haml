@@ -3,41 +3,43 @@
 .container
   .row
     .col-md-1
-    .col-md-4
-      %h2.header
-        = trip.name
-    .col-md-7
-  .row
-    .col-md-6.well
-      = trip.description
-    .col-md-6
-  .row
-    .col-md-5
-    .col-md-7
-      .location
-        = trip.address
-  .row
-    .col-md-5
-    .col-md-7
-      = trip.date
-  .row
-    .col-md-5
-    .col-md-7
-      = "by #{trip.user}"
-
-- if policy(trip).invite?
-  .container
-    .row
-      .col.md-2
-        %h4 Invite:
-      .col.md-10
-    .row
-      .col-md-5
-        = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
-          = f.input :email, label: false, placeholder: 'email@example.com'
-          = f.input :name, label: false, placeholder: 'Name'
-          = f.submit
-      .col-md-7
+    .col-md-10.well
+      .row
+        .col-md-1
+        .col-md-4
+          %h2.header
+            = trip.name
+        .col-md-7
+      .row
+        .col-md-1
+        .col-md-10.well
+          = trip.description
+        .col-md-1
+      .row
+        .col-md-9
+        .col-md-3
+          .location
+            = trip.address
+      .row
+        .col-md-9
+        .col-md-3
+          = trip.date
+      .row
+        .col-md-9
+        .col-md-3
+          = "by #{trip.user}"
+      - if policy(trip).invite?
+        .container
+          .row
+            .col-md-2
+            .col-md-5
+              %h4 Invite:
+              = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
+                = f.input :email, label: false, placeholder: 'email@example.com'
+                = f.input :name, label: false, placeholder: 'Name'
+                = f.submit
+            .col-md-5
+    .col-md-1
 
 .container
   .row.button-margins
