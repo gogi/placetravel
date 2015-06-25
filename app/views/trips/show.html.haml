@@ -1,31 +1,51 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = trip.name
-%p
-  %b Description:
-  = trip.description
-%p
-  %b Location:
-  = trip.address
-%p
-  %b Date:
-  = trip.date
-%p
-  %b User:
-  = trip.user
+.container
+  .row
+    .col-md-1
+    .col-md-4
+      %h2.header
+        = trip.name
+    .col-md-7
+  .row
+    .col-md-6.well
+      = trip.description
+    .col-md-6
+  .row
+    .col-md-5
+    .col-md-7
+      .location
+        = trip.address
+  .row
+    .col-md-5
+    .col-md-7
+      = trip.date
+  .row
+    .col-md-5
+    .col-md-7
+      = "by #{trip.user}"
 
-%p
-  - if policy(trip).invite?
-    %b Invite:
-    = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
-      = f.input :email
-      = f.input :name
-      = f.submit
-  - if policy(@membership).confirm?
-    = link_to 'Accept', confirm_membership_path(@membership.id), class: 'btn btn-success'
+- if policy(trip).invite?
+  .container
+    .row
+      .col.md-2
+        %h4 Invite:
+      .col.md-10
+    .row
+      .col-md-5
+        = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
+          = f.input :email, label: false, placeholder: 'email@example.com'
+          = f.input :name, label: false, placeholder: 'Name'
+          = f.submit
+      .col-md-7
 
-= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
-\|
-= link_to 'Back', trips_path, class: 'btn btn-default'
+.container
+  .row.button-margins
+    .col-md-1
+    .col-md-2
+      = link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
+      = link_to 'Back', trips_path, class: 'btn btn-default'
+    .col-md-3
+      - if policy(@membership).confirm?
+        = link_to 'Accept', confirm_membership_path(@membership.id), class: 'btn btn-success'
+    .col-md-6
