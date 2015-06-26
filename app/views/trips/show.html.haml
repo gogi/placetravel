@@ -33,11 +33,11 @@
           .row
             .col-md-2
             .col-md-5
-              %h4 Invite:
+              %h4 Invite a friend:
               = simple_form_for :invite, { url: trip_invite_path(trip) } do |f|
                 = f.input :email, label: false, placeholder: 'email@example.com'
                 = f.input :name, label: false, placeholder: 'Name'
-                = f.submit
+                = f.submit 'Invite!', class: 'btn btn-primary'
             .col-md-5
     .col-md-1
 
