@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  expose(:trips) { current_user.trips }
+  expose(:trips) { current_user.trips.decorate }
   expose(:trip, attributes: :trip_params)
   expose(:user)
 

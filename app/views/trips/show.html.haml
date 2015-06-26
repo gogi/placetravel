@@ -23,10 +23,10 @@
       .row
         .col-md-9
         .col-md-3
-          = trip.date
+          = trip.trip_date
       .row
         .col-md-9
-        .col-md-3
+        .col-md-3.signature
           = "by #{trip.user}"
       - if policy(trip).invite?
         .container
