@@ -1,38 +1,41 @@
-%h1 Your trips
-
-%table.table.table-hover
-  %thead
-    %tr
-      %th
-      %th Name
-      %th Description
-      %th Location
-      %th Date
-      %th Created by
-      %th
-      %th
-      %th
-
-  %tbody
-    - trips.each do |trip|
-      %tr
-        %td
-          %span.badge.glyphicon.glyphicon-user= trip.users.count
-        %td= link_to trip.name, trip_path(trip)
-        %td= trip.description
-        %td= trip.address
-        %td= trip.date
-        %td= trip.user
-        %td.action-buttons
-          = link_to trip_places_path(trip) do
-            %span.btn.btn-default
-              %span.badge.glyphicon.glyphicon-pushpin= trip.places.count
-              Places
-        %end
-        - if trip.user == current_user
-          %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
-          %td.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
-
-%br
-
-= link_to 'New Trip', new_trip_path, class: 'btn btn-success'
+.container.well
+  .row
+    .col-md-1
+    .col-md-10
+      %h1.header Your trips
+    .col-md-1
+  .row
+    .col-md-12
+      %table.table
+        %thead
+          %tr
+            %th
+            %th Name
+            %th Location
+            %th Date
+            %th Created by
+            %th
+          %tbody
+            - trips.each do |trip|
+              %tr
+                %td
+                  %span.badge.glyphicon.glyphicon-user= trip.users.count
+                %td.centered.trip_name= link_to trip.name, trip_path(trip)
+                %td.centered= trip.address
+                %td.centered= trip.date
+                %td.centered= trip.user
+                %td.action-buttons
+                  = link_to trip_places_path(trip) do
+                    %span.btn.btn-default.btn-size
+                      .margin
+                        %span.badge.glyphicon.glyphicon-pushpin= trip.places.count
+                        Places
+                %end
+                - if trip.user == current_user
+                  .btn-group
+                    %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
+                    %td.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
+  .row
+    .col-md-12
+    .col-md-10
+      = link_to 'New Trip', new_trip_path, class: 'btn btn-success'
