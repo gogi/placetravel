@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-2
+    .col-md-10
+      .well
+        %h1.header Trip members
+        %h5.header= "-- #{trip.name}"
+        %table.table
+          - trip.users.each do |user|
+            %tr
+              %td
+                = user.name
+              %td
+                = user.email
+        %p
+          =link_to 'Back', trips_path, class: 'btn btn-default'
+    .col-md-2
