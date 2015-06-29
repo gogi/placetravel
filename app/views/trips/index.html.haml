@@ -19,7 +19,8 @@
             - trips.each do |trip|
               %tr
                 %td
-                  %span.badge.glyphicon.glyphicon-user= trip.users.count
+                  =link_to trip_users_path(trip) do
+                    %span.badge.glyphicon.glyphicon-user= trip.users.count
                 %td.centered.trip_name= link_to trip.name, trip_path(trip)
                 %td.centered= trip.address
                 %td.centered= trip.date
@@ -32,9 +33,10 @@
                         = trip.places_display
                 %end
                 - if trip.user == current_user
-                  .btn-group
-                    %td.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
-                    %td.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
+                  %td
+                    .btn-group
+                      %span.action-buttons= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-primary'
+                      %span.action-buttons= link_to 'Destroy', trip, class: 'btn btn-danger', method: :delete, data: { confirm: :'Are you sure?' }
   .row
     .col-md-12
     .col-md-10

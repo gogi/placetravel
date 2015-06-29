@@ -40,14 +40,15 @@
 
 .trip_name {
   text-transform: uppercase;
-  a:link {
-    color: red;
+  a {
+    color: #00A885;
   }
 }
 
 .btn-size {
   padding: 3px 15px;
   font-size: 14px;
+  min-width: 111px;
 }
 
 .margin {
