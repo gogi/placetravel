@@ -1,53 +1,55 @@
 %script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
 %script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
 
-%h1= trip.name
+.container.well
+  .row
+    .col-md-1
+    .col-md-10
+      %h1.header= trip.name
+    .col-md-1
+  .row
+    .col-md-12
+      %table.table.table-hover
+        %thead
+          %tr
+            %th Name
+            %th Address
+            %th Description
+            %th Price
+            %th User
+            %th
+        %tbody
+          - places.each do |place|
+            %tr
+              %td.trip_name
+                =link_to place.name, trip_place_path(place.trip, place)
+              %td= place.address
+              %td= place.description
+              %td= place.price
+              %td
+                Created by
+                = place.user
+              %td.btn-group
+                %span.action-buttons= link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
+                %span.action-buttons= link_to 'Destroy', trip_place_path(place.trip, place), class: 'btn btn-danger', method: :delete, data: { :confirm => 'Are you sure?' }
+  .row
+    .col-md-2
+    .col-md-8.map-margin
+      - if places.count > 0
+        #map.map
+      - else
+        There are no places. Why not add some?
 
-%table.table.table-hover
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th Description
-      %th Price
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - places.each do |place|
-      %tr
-        %td.place-name
-          = place.name
-        %td= place.address
-        %td= place.description
-        %td= place.price
-        %td
-          Created by
-          = place.user
-        %td.action-buttons= link_to 'Show', trip_place_path(place.trip, place), class: 'btn btn-default'
-        %td.action-buttons= link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
-        %td.action-buttons= link_to 'Destroy', trip_place_path(place.trip, place), class: 'btn btn-danger', method: :delete, data: { :confirm => 'Are you sure?' }
-
-%br
-
-- if places.count > 0
-  #map.map
-- else 
-  There are no places. Why not add some?
-
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers( gon.hash );
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-
-%br
-%br
-
-= link_to 'New Place', new_trip_place_path(trip), class: 'btn btn-success'
-
-= link_to 'Back', trips_path, class: 'btn btn-default'
+      :javascript
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers( gon.hash );
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+    .col-md-2
+  .row
+    .col-md-2
+    .col-md-10
+      = link_to 'New Place', new_trip_place_path(trip), class: 'btn btn-success'
+      = link_to 'Back', trips_path, class: 'btn btn-default'
