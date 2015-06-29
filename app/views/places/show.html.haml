@@ -1,21 +1,33 @@
-%p#notice= notice
-
-%p
-  %b User:
-  = place.user
-%p
-  %b Trip:
-  = place.trip.name
-%p
-  %b Address:
-  = place.address
-%p
-  %b Description:
-  = place.description
-%p
-  %b Price:
-  = place.price
-
-= link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
-\|
-= link_to 'Back', trip_places_path(place.trip), class: 'btn btn-default'
+.container.well
+  .row
+    .col-md-1
+    .col-md-10
+      %p#notice= notice
+      %h2.header= place.name
+    .col-md-1
+  .row
+    .col-md-1
+    .col-md-10.signature
+      = "--created by #{place.user} in trip '#{place.trip.name}'"
+    .col-md-1
+  .row.address
+    .col-md-1
+    .col-md-6
+      %b Address:
+      = place.address
+    .col-md-1
+    .col-md-3
+      %b Price:
+      = place.price
+    .col-md-1
+  .row
+    .col-md-1
+    .col-md-10.well
+      = place.description
+    .col-md-1
+  .row
+    .col-md-1
+    .col-md-10.button-margins
+      = link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
+      = link_to 'Back', trip_places_path(place.trip), class: 'btn btn-default'
+    .col-md-1
