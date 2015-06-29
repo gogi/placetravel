@@ -29,7 +29,7 @@
                     %span.btn.btn-default.btn-size
                       .margin
                         %span.badge.glyphicon.glyphicon-pushpin= trip.places.count
-                        Places
+                        = trip.places_display
                 %end
                 - if trip.user == current_user
                   .btn-group
