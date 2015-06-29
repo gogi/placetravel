@@ -23,6 +23,9 @@ class TripsController < ApplicationController
   def index
   end
 
+  def users
+  end
+
   # GET /trips/1
   # GET /trips/1.json
   def show

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :trips do
     resources :places
     post 'invite', to: 'trips#invite'
+    get 'users', to: 'trips#users'
   end
 
   get '/memberships/confirm/:id', to: 'memberships#confirm', as: :confirm_membership
