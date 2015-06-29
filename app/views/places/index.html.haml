@@ -16,7 +16,7 @@
             %th Address
             %th Description
             %th Price
-            %th User
+            %th
             %th
         %tbody
           - places.each do |place|
@@ -24,10 +24,10 @@
               %td.trip_name
                 =link_to place.name, trip_place_path(place.trip, place)
               %td= place.address
-              %td= place.description
+              %td= truncate("#{place.description}", length: 30, separator: ' ')
               %td= place.price
-              %td
-                Created by
+              %td.signature
+                by
                 = place.user
               %td.btn-group
                 %span.action-buttons= link_to 'Edit', edit_trip_place_path(place.trip, place), class: 'btn btn-primary'
