@@ -1,11 +1,13 @@
 .container
   .row
-    .col-md-2
-    .col-md-10
+    .col-md-12
       .well
         %h1.header Trip members
         %h5.header= "-- #{trip.name}"
         %table.table
+          %tr
+            %th Name
+            %th E-mail
           - trip.users.each do |user|
             %tr
               %td
@@ -14,4 +16,3 @@
                 = user.email
         %p
           =link_to 'Back', trips_path, class: 'btn btn-default'
-    .col-md-2
