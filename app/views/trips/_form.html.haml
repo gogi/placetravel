@@ -2,10 +2,14 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :description
-    = f.input :address
-    = f.input :date
+    %h4 Trip name
+    = f.input :name, label: false
+    %h4 Description
+    = f.input :description, label: false
+    %h4 Address
+    = f.input :address, label: false
+    %h4 Date
+    = f.input :date, label: false
 
   .form-actions
     = f.button :submit

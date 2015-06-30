@@ -1,7 +1,11 @@
-%h1 Editing trip
+.container.well
+  .row
+    .col-md-1
+    .col-md-10
+      %h1.header Edit trip
 
-= render 'form'
+      = render 'form'
 
-= link_to 'Show', trip, class: 'btn btn-default'
-\|
-= link_to 'Back', trips_path, class: 'btn btn-default'
+      = link_to 'Show', trip, class: 'btn btn-default'
+      = link_to 'Back', trips_path, class: 'btn btn-default'
+    .col-md-1
