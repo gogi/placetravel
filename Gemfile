@@ -14,6 +14,8 @@ gem 'underscore-rails'
 gem 'gon'
 gem 'awesome_print'
 gem 'draper'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'momentjs-rails', '~> 2.9',  github: 'derekprior/momentjs-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

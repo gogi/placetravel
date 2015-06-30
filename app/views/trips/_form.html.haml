@@ -9,7 +9,7 @@
     %h4 Address
     = f.input :address, label: false
     %h4 Date
-    = f.input :date, label: false
+    = f.input :date, label: false, as: :datetime_picker
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-success'
