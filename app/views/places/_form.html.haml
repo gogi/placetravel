@@ -2,10 +2,19 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :address
-    = f.input :description
-    = f.input :price
-
-  .form-actions
-    = f.button :submit
+    %h4 Name
+    = f.input :name, label: false
+    %h4 Address
+    = f.input :address, label: false
+    %h4 Description
+    = f.input :description, label: false
+    .container
+      .row
+        .col-md-2
+          %h4 Price
+          = f.input :price, label: false
+        .col-md-1
+        .col-md-2
+          .form-actions.form-button-margin
+            = f.button :submit, class: 'btn btn-success'
+        .col-md-7

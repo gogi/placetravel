@@ -1,7 +1,11 @@
-%h1 Editing place
+.container.well
+  .row
+    .col-md-1
+    .col-md-10
+      %h1.header Edit place
 
-= render 'form'
+      = render 'form'
 
-= link_to 'Show', trip_place_path(place.trip, place), class: 'btn btn-default'
-\|
-= link_to 'Back', trip_places_path(place.trip), class: 'btn btn-default'
+      = link_to 'Show', trip_place_path(place.trip, place), class: 'btn btn-default'
+      = link_to 'Back', trip_places_path(place.trip), class: 'btn btn-default'
+    .col-md-1
