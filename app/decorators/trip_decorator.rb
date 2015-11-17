@@ -6,10 +6,12 @@ class TripDecorator < Draper::Decorator
   end
 
   def places_display
-    if trip.places.count != 1
+    if trip.places.count > 1
       'Places'
-    else
+    elsif trip.places.count == 1
       'Places'.singularize
+    else
+      'No places'
     end
   end
 
